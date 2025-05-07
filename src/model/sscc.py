@@ -13,15 +13,16 @@ class SSCC:
 
     def __repr__(self) -> str:
         return (
-           f"nr: {self.no},\n" 
-           f"nr zapasu: {self.item_no},\n" 
-           f"nr partii: {self.charge_no},\n" 
-           f"TPS: {self.bbd},\n" 
-           f"ilość: {self.quantity},\n" 
-           f"masa netto: {self.weight_netto},\n" 
-           f"masa netto: {self.weight_netto},\n" 
-           f"poz. ilość: {self.rest_quantity},\n" 
-           f"poz. masa netto: {self.rest_weight},\n"
+            f"\nDane SSCC:\n"
+            f"-----------\n"
+            f"nr: {self.no},\n" 
+            f"nr zapasu: {self.item_no},\n" 
+            f"nr partii: {self.charge_no},\n" 
+            f"TPS: {self.bbd},\n" 
+            f"ilość: {self.quantity},\n" 
+            f"masa netto: {self.weight_netto},\n" 
+            f"poz. ilość: {self.rest_quantity},\n" 
+            f"poz. masa netto: {self.rest_weight},\n"
         )
 
 

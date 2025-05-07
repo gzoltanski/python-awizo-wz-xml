@@ -25,8 +25,8 @@ def query_sales_header(db, cursor, nr_ref, nr_nab):
     """dane z WAWI z nagłówka zamówienia sprzedaży"""
     SQL_SALES_HEADER =f"""
     SELECT
-           [Your Reference] as NrRef
-          ,[No_] as NrZam
+           [No_] as NrZam
+          ,[Your Reference] as NrRef
           ,[Sell-to Customer No_] as NrNab
           ,[Bill-to Customer No_] as NrPlat
           ,FORMAT([Order Date],'yyyy-MM-dd') as DataZam
@@ -61,7 +61,7 @@ def query_sales_line(db, cursor, nr_zam):
 	  ,FORMAT(SL.[Shipment Date] + SL.[Haltbarkeitstage],'yyyy-MM-dd') as DataTPS
       ,SL.[Lieferfreigabe] as Zwoln
       ,FORMAT(SL.[Bestellgewicht (Soll)],'N3','pl-pl') as IloscKG_Zam
-    FROM [{db}].[dbo].[DROBIMEX$Sales Line] as SL JOIN [{DATABASE}].[dbo].[DROBIMEX$Item] as Z 
+    FROM [{db}].[dbo].[DROBIMEX$Sales Line] as SL JOIN [{db}].[dbo].[DROBIMEX$Item] as Z 
     ON SL.[No_] = Z.[No_]
     WHERE SL.[Document No_] = '{nr_zam}'
     """

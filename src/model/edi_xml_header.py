@@ -15,14 +15,16 @@ class EdiXmlHeader:
 
     def __repr__(self) -> str:
         return (
-           f"nr zapisu: {self.entry_no},\n" 
-           f"data dostawy: {self.delivery_date},\n" 
-           f"nr nabywcy: {self.customer_no},\n"
-           f"nazwa nabywcy: {self.customer_name},\n"
-           f"GLN nabywcy: {self.customer_gln},\n"
-           f"DLN: {self.dln},\n" 
-           f"typ dokumentu: {self.document_type},\n" 
-           f"nr referencji: {self.reference_no},\n" 
-           f"nr WZ: {self.delivery_no},\n"
-           f"status dok. EDI: {self.status},\n"
+            f"\nDane nagłówka EDI XML:\n"
+            f"-----------------------\n"
+            f"nr zapisu: {self.entry_no},\n" 
+            f"data dostawy: {self.delivery_date},\n" 
+            f"nr nabywcy: {self.customer_no},\n"
+            f"nazwa nabywcy: {self.customer_name},\n"
+            f"GLN nabywcy: {self.customer_gln},\n"
+            f"DLN: {self.dln},\n" 
+            f"typ dokumentu: {self.document_type},\n" 
+            f"nr referencji: {self.reference_no},\n" 
+            f"nr WZ: {self.delivery_no},\n"
+            f"status dok. EDI: {self.status},\n"
         )

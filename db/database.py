@@ -44,3 +44,6 @@ class Database:
             f'PWD={self.pwd}'
         )
         self.cursor = self.connection.cursor()
+
+    def display_database_name(self):
+        return f"\nJesteś połączony z bazą danych: {self.database}"
