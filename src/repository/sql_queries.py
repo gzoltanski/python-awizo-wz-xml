@@ -100,6 +100,24 @@ def query_nve_daten(db, cursor, sscc):
     return run_sql_query(cursor, SQL_NVE_DATEN)
 # -----------------------------------------------------------------------------------------------------
 
+def query_customer_item(db, cursor, customer_name, buyer_item_code):
+    SQL_CUSTOMER_ITEM = f"""
+    SELECT 
+        pc.[name]
+       ,ci.[item_no]
+       ,ci.[buyer_item_code]
+       ,ci.[drobimex_increment]
+       ,ci.[customer_increment]
+       ,ci.[customer_uom]
+    FROM [ecoddb_tst].[dbo].[customer_item] as ci JOIN [ecoddb_tst].[dbo].[parent_customer] as pc 
+    ON ci.[parent_customer_id] = pc.[id] 
+    WHERE pc.[name] = {customer_name} and ci.[buyer_item_code] = {buyer_item_code}
+"""
+    return run_sql_query(cursor, SQL_CUSTOMER_ITEM)
+# -----------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------
+
 def run_sql_query(cursor, query):
     """Funkcja wykonuje komendę SQL i jako wynik zwraca listę rekordów"""
     cursor.execute(query)
