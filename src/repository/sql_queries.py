@@ -1,6 +1,6 @@
 
 
-def query_edi_xml_kopf(db, cursor, nr_ref, dln):
+def query_edi_xml_kopf(db, nr_ref, dln):
     """pobranie danych z Wawi z EDI XML KOPF"""
     SQL_EDI_XML_KOPF = f"""
     SELECT
@@ -21,7 +21,7 @@ def query_edi_xml_kopf(db, cursor, nr_ref, dln):
     return run_sql_query(cursor, SQL_EDI_XML_KOPF)
 # -----------------------------------------------------------------------------------------------------
 
-def query_sales_header(db, cursor, nr_ref, nr_nab):
+def query_sales_header(db, nr_ref, nr_nab):
     """dane z WAWI z nagłówka zamówienia sprzedaży"""
     SQL_SALES_HEADER =f"""
     SELECT
@@ -41,7 +41,7 @@ def query_sales_header(db, cursor, nr_ref, nr_nab):
     return run_sql_query(cursor, SQL_SALES_HEADER)
 # -----------------------------------------------------------------------------------------------------
 
-def query_sales_line(db, cursor, nr_zam):
+def query_sales_line(db,nr_zam):
     """dane z WAWI z wiersza zamówienia sprzedaży"""
     SQL_SALES_LINE = f"""
     SELECT
@@ -68,7 +68,7 @@ def query_sales_line(db, cursor, nr_zam):
     return run_sql_query(cursor, SQL_SALES_LINE)
 # -----------------------------------------------------------------------------------------------------
 
-def query_sscc_zuord(db, cursor, nr_zam, nr_wiersza):
+def query_sscc_zuord(db,nr_zam, nr_wiersza):
     """dane z Wawi z SSCC Zuordnung"""
     SQL_SSCC_ZUORD = f"""
     SELECT 
@@ -83,7 +83,7 @@ def query_sscc_zuord(db, cursor, nr_zam, nr_wiersza):
     return run_sql_query(cursor, SQL_SSCC_ZUORD)
 # -----------------------------------------------------------------------------------------------------
 
-def query_nve_daten(db, cursor, sscc):
+def query_nve_daten(db, sscc):
     SQL_NVE_DATEN = f"""
     SELECT
        [Nr_] as SSCC
@@ -92,15 +92,16 @@ def query_nve_daten(db, cursor, sscc):
       ,FORMAT([MHD],'yyyy-MM-dd') as TPS
       ,FORMAT([Menge],'N0') as Ilosc
       ,FORMAT([Nettogewicht],'N3') as IloscKGNetto
-      ,FORMAT([Restmenge],'N0') as IloscPoz
-      ,FORMAT([Restmenge (Gewichtseinheit)],'N3') as IloscKG_Poz
+--       ,FORMAT([Restmenge],'N0') as IloscPoz
+--       ,FORMAT([Restmenge (Gewichtseinheit)],'N3') as IloscKG_Poz
       FROM [{db}].[dbo].[DROBIMEX$NVE Daten] as SSCC
       WHERE [Nr_] = '{sscc}'
     """
     return run_sql_query(cursor, SQL_NVE_DATEN)
 # -----------------------------------------------------------------------------------------------------
 
-def query_customer_item(db, cursor, customer_name, buyer_item_code):
+def query_customer_item(db, customer_name, buyer_item_code):
+    cursor = db.cursor
     SQL_CUSTOMER_ITEM = f"""
     SELECT 
         pc.[name]

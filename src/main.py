@@ -2,32 +2,42 @@ from db import *
 from src import *
 from db.database import *
 from model.sscc import *
-from repository.sql_queries import *
+from src.repository import *
+from src.repository.assigned_sscc_repository import query_assigned_sscc
+from src.repository.customer_item_repository import *
+from src.repository.sscc_repository import *
 from more_itertools import first
 
 from src.model.customer_item import CustomerItem
 from src.model.edi_xml_header import EdiXmlHeader
 from src.model.sales_header import SalesHeader
 from src.model.sales_line import SalesLine
-from src.model.assigned_sscc import AssignedSSCC
 from src.model.sscc import SSCC
 
 if __name__ == '__main__':
 
-    ecod = Database(server=ECOD_SERVER, database=ECOD_TEST_DATABASE, uid=ECOD_UID, pwd=ECOD_PWD)
-    ecod_cursor = ecod.connection.cursor()
-    print(ecod.display_database_name())
-    # xwawi = Database(server=XWAWI_SERVER, database=XWAWI_DATABASE, uid=XWAWI_UID, pwd=XWAWI_PWD)
-    # xwawi_cursor = xwawi.connection.cursor()
-    # print(xwawi.display_database_name())
+    wawi_db = Database()
+    xwawi_db = Database(server=XWAWI_SERVER, database=XWAWI_DATABASE,uid=XWAWI_UID, pwd=XWAWI_PWD)
+    ecod_tst_db = Database(server=ECOD_SERVER, database=ECOD_TEST_DATABASE, uid=ECOD_UID, pwd=ECOD_PWD)
 
-    customer_item_sql = query_customer_item(ecod, ecod_cursor,'name','buyer_item_code')
-    customer_item_list = []
-    for ci in customer_item_sql:
-        customer_item_list.append(CustomerItem(*ci))
+    # print(query_sscc(wawi_db, '359001962151251435'))
 
-    for ci in customer_item_list:
-        print(ci)
+
+    # sscc_list = query_assigned_sscc(xwawi_db, 'ZA24-086634-064000', 10000)
+    # for sscc in sscc_list:
+    #     print(sscc)
+
+    customer_item_list = query_customer_item(ecod_tst_db, 'name', 'buyer_item_code')
+    for item in customer_item_list:
+        print(item)
+
+    # customer_item_sql = query_customer_item(ecod_tst_db, ecod.cursor,'name','buyer_item_code')
+    # customer_item_list = []
+    # for ci in customer_item_sql:
+    #     customer_item_list.append(CustomerItem(*ci))
+    #
+    # for ci in customer_item_list:
+    #     print(ci)
 
 
 
@@ -36,9 +46,9 @@ if __name__ == '__main__':
     #     customer_item_list.append(*ci)
     # print(customer_item_list)
 
-    # sscc_sql = query_nve_daten(WAWI_DATABASE, cursor, '359001962150910050')[0]
-    # sscc_sql = next(iter(query_nve_daten(WAWI_DATABASE, cursor, '359001962150910050')))
-    # sscc_sql = first(query_nve_daten(WAWI_DATABASE, cursor, '359001962150910050'))
+    # sscc_sql = query_nve_daten(WAWI_DATABASE, '359001962150910050')[0]
+    # sscc_sql = next(iter(query_nve_daten(WAWI_DATABASE, '359001962150910050')))
+    # sscc_sql = first(query_nve_daten(WAWI_DATABASE, '359001962150910050'))
     # sscc = SSCC(*sscc_sql)
     # print(sscc)
     #
