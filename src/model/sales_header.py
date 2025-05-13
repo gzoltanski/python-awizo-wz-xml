@@ -17,6 +17,7 @@ class SalesHeader:
             f"--------------------------\n"
             f"nr: {self.no},\n" 
             f"nr zam. nabywcy: {self.reference},\n" 
+            f"nr nabywcy: {self.customer_no},\n" 
             f"nr płatnika: {self.payer_no},\n" 
             f"data zamówienia: {self.order_date},\n" 
             f"data dostawy: {self.shipment_date},\n" 

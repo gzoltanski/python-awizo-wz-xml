@@ -3,7 +3,7 @@ from src.model.assigned_sscc import AssignedSSCC
 from src.repository import SqlQuery
 
 
-def query_assigned_sscc(db: Database, order_no, line_no) -> [AssignedSSCC]:
+def query_assigned_sscc(db: Database, order_no: str, line_no: int) -> [AssignedSSCC]:
 
     SQL_SSCC_ZUORD = f"""
         SELECT 
