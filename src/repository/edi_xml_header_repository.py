@@ -21,6 +21,6 @@ def query_edi_xml_header(db: Database, ref_no: str, dln: str ) -> EdiXmlHeader:
           WHERE [Belegnummer] = '{ref_no}' and [ILN-Lieferanschrift] = '{dln}' -- and [Lieferungsnr_] <> ''
         """
 
-    edi_xml_header_sql = first(SqlQuery(db, SQL_EDI_XML_KOPF).execute())
+    edi_xml_header_sql = SqlQuery(db, SQL_EDI_XML_KOPF).fetch_one()
 
     return EdiXmlHeader(*edi_xml_header_sql)

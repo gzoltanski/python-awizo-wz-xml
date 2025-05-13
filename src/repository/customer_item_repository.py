@@ -17,7 +17,7 @@ def query_customer_item(db: Database, customer_name, buyer_item_code) -> [Custom
         WHERE pc.[name] = '{customer_name}' and ci.[buyer_item_code] = '{buyer_item_code}'
     """
 
-    customer_item_sql = SqlQuery(db, SQL_CUSTOMER_ITEM).execute()
+    customer_item_sql = SqlQuery(db, SQL_CUSTOMER_ITEM).fetch_all()
     customer_item_list = []
     for customer_item in customer_item_sql:
         customer_item_list.append(CustomerItem(*customer_item))

@@ -20,6 +20,6 @@ def query_sales_header(db: Database, ref_no: str, customer_no: str ) -> SalesHea
                 -- and [Shipment Date] >= SYSDATETIME()
         """
 
-    sales_header_sql = first(SqlQuery(db, SQL_SALES_HEADER).execute())
+    sales_header_sql = SqlQuery(db, SQL_SALES_HEADER).fetch_one()
 
     return SalesHeader(*sales_header_sql)

@@ -28,7 +28,7 @@ def query_sales_line(db: Database, order_no: str) -> [SalesLine]:
         WHERE SL.[Document No_] = '{order_no}'
         """
 
-    sales_line_sql_list = SqlQuery(db, SQL_SALES_LINE).execute()
+    sales_line_sql_list = SqlQuery(db, SQL_SALES_LINE).fetch_all()
     sales_line_list = []
     for sales_line in sales_line_sql_list:
         sales_line_list.append(SalesLine(*sales_line))

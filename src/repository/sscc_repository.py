@@ -19,6 +19,6 @@ def query_sscc(db: Database, sscc: str) -> SSCC:
           WHERE [Nr_] = '{sscc}'
         """
 
-    sscc_sql = first(SqlQuery(db, SQL_NVE_DATEN).execute())
+    sscc_sql = SqlQuery(db, SQL_NVE_DATEN).fetch_one()
 
     return SSCC(*sscc_sql)

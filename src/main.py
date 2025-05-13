@@ -19,6 +19,8 @@ if __name__ == '__main__':
     # for sscc in sscc_list:
     #     print(sscc)
     #
+    # print(query_sscc(xwawi_db, '359001962120170897'))
+
     # customer_item_list = query_customer_item(ecod_tst_db,'ALDI', '7720')
     # for item in customer_item_list:
     #     print(item)

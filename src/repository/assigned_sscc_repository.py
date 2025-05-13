@@ -16,7 +16,7 @@ def query_assigned_sscc(db: Database, order_no: str, line_no: int) -> [AssignedS
           WHERE [Belegnr_] = '{order_no}' and [Belegzeilennr_] = {line_no}
         """
 
-    assigned_sscc_sql_list = SqlQuery(db, SQL_SSCC_ZUORD).execute()
+    assigned_sscc_sql_list = SqlQuery(db, SQL_SSCC_ZUORD).fetch_all()
     assigned_sscc_list = []
     for sscc in assigned_sscc_sql_list:
         assigned_sscc_list.append(AssignedSSCC(*sscc))
