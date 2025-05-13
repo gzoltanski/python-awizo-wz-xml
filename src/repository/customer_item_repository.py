@@ -2,7 +2,7 @@ from db.database import Database
 from src.model.customer_item import CustomerItem
 from src.repository import *
 
-def query_customer_item(db: Database, customer_name, buyer_item_code) -> [CustomerItem]:
+def query_customer_item(db: Database, customer_name: str, buyer_item_code: str) -> [CustomerItem]:
 
     SQL_CUSTOMER_ITEM = f"""
         SELECT 

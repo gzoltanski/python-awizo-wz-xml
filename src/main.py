@@ -2,13 +2,14 @@ from db.database import *
 from src.repository.assigned_sscc_repository import query_assigned_sscc
 from src.repository.customer_item_repository import *
 from src.repository.edi_xml_header_repository import query_edi_xml_header
+from src.repository.package_loading_repository import query_package_loading
 from src.repository.sales_header_repository import query_sales_header
 from src.repository.sales_line_repository import query_sales_line
 from src.repository.sscc_repository import *
 
 if __name__ == '__main__':
 
-    wawi_db = Database()
+    wawi_db = Database(server=WAWI_SERVER, database=WAWI_DATABASE, uid=WAWI_UID, pwd=WAWI_PWD)
     xwawi_db = Database(server=XWAWI_SERVER, database=XWAWI_DATABASE,uid=XWAWI_UID, pwd=XWAWI_PWD)
     ecod_tst_db = Database(server=ECOD_SERVER, database=ECOD_TEST_DATABASE, uid=ECOD_UID, pwd=ECOD_PWD)
 
@@ -32,3 +33,8 @@ if __name__ == '__main__':
     # sales_line_list = query_sales_line(xwawi_db, 'ZA24-086715-064000')
     # for sales_line in sales_line_list:
     #     print(sales_line)
+
+    package_loading_list = query_package_loading(wawi_db, 'ZA24-136809-064000', '21324')
+
+    for package_loading in package_loading_list:
+        print(package_loading)
