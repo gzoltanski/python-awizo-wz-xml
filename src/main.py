@@ -34,7 +34,7 @@ if __name__ == '__main__':
     # for sales_line in sales_line_list:
     #     print(sales_line)
 
-    package_loading_list = query_package_loading(wawi_db, 'ZA24-136809-064000', '21324')
-
-    for package_loading in package_loading_list:
-        print(package_loading)
+    # package_loading_list = query_package_loading(wawi_db, 'ZA24-136809-064000', '21324')
+    #
+    # for package_loading in package_loading_list:
+    #     print(package_loading)
