@@ -1,5 +1,5 @@
 from db.database import Database
-from src.model.sales_line import SalesLine
+from src.model.wawi.sales_line import SalesLine
 from src.repository import SqlQuery
 
 

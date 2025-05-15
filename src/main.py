@@ -1,15 +1,31 @@
 from db.database import *
-from src.repository.assigned_sscc_repository import query_assigned_sscc
-from src.repository.customer_item_repository import *
-from src.repository.edi_xml_header_repository import query_edi_xml_header
-from src.repository.package_loading_repository import query_package_loading
-from src.repository.sales_header_repository import query_sales_header
-from src.repository.sales_line_repository import query_sales_line
-from src.repository.sscc_repository import *
+from src import *
+from src.model.desadv.DeliveryPoint import DeliveryPoint
+from src.model.desadv.Buyer import Buyer
+from src.repository.wawi.sscc_repository import *
 
 if __name__ == '__main__':
 
-    wawi_db = Database(server=WAWI_SERVER, database=WAWI_DATABASE, uid=WAWI_UID, pwd=WAWI_PWD)
+
+    awz_file = new_awz_folder / 'WZ24-080686-064000.XML'
+    print(awz_file)
+    #
+    # awz = XmlDocument(awz_file)
+    # awz.display()
+    #
+    buyer = Buyer(awz_file)
+    print(f"Buyer ILN: {buyer.iln.text}")
+    #
+    # buyer.set_iln("4335814999999")
+    # print(f"new iln: {buyer.iln.text}")
+
+    delivery_point = DeliveryPoint(awz_file)
+    print(f"DeliveryPoint ILN: {delivery_point.get_iln()}")
+
+
+
+    # print(awz)
+    wawi_db = Database()
     xwawi_db = Database(server=XWAWI_SERVER, database=XWAWI_DATABASE,uid=XWAWI_UID, pwd=XWAWI_PWD)
     ecod_tst_db = Database(server=ECOD_SERVER, database=ECOD_TEST_DATABASE, uid=ECOD_UID, pwd=ECOD_PWD)
 

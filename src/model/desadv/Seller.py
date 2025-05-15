@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from src.model.desadv import *
 
 @dataclass
 class Seller:

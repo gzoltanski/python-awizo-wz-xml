@@ -1,5 +1,4 @@
-from db.database import Database
-from src.model.customer_item import CustomerItem
+from src.model.ecod.customer_item import CustomerItem
 from src.repository import *
 
 def query_customer_item(db: Database, customer_name: str, buyer_item_code: str) -> [CustomerItem]:

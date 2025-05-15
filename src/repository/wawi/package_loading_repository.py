@@ -1,5 +1,5 @@
 from db.database import Database
-from src.model.package_loading import PackageLoading
+from src.model.wawi.package_loading import PackageLoading
 from src.repository import SqlQuery
 
 

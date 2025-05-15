@@ -1,5 +1,4 @@
-from db.database import Database
-from src.model.edi_xml_header import EdiXmlHeader
+from src.model.wawi.edi_xml_header import EdiXmlHeader
 from src.repository import *
 
 

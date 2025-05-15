@@ -1,5 +1,5 @@
 from db.database import Database
-from src.model.assigned_sscc import AssignedSSCC
+from src.model.wawi.assigned_sscc import AssignedSSCC
 from src.repository import SqlQuery
 
 

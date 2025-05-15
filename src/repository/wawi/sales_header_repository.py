@@ -1,5 +1,4 @@
-from db.database import Database
-from src.model.sales_header import SalesHeader
+from src.model.wawi.sales_header import SalesHeader
 from src.repository import *
 
 

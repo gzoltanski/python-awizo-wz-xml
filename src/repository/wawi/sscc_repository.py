@@ -1,5 +1,4 @@
-from src.model import sscc
-from src.model.sscc import SSCC
+from src.model.wawi.sscc import SSCC
 from src.repository import *
 
 
