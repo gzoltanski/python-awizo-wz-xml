@@ -1,12 +1,12 @@
 from src.model import *
-# from abc import ABC, abstractmethod
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
 class XmlDocument():
-    def __init__(self, xml_doc: Path) -> None:
-        self.xml_doc = xml_doc
-        self.tree = ET.parse(self.xml_doc)
+    """Klasa-szablon dla dokumentów XML"""
+    def __init__(self, xml_file: Path) -> None:
+        self.xml_file = xml_file
+        self.tree = ET.parse(self.xml_file)
         self.root = self.tree.getroot()
 
     def __repr__(self):
@@ -15,3 +15,9 @@ class XmlDocument():
     def display(self):
         ET.dump(self.root)
 
+class DesadvBase:
+    """Klasa bazowa dla wszystkich obiektów DESADV."""
+
+    def __init__(self, desadv_file: Path) -> None:
+        # Jednorazowa inicjalizacja parsera XML
+        self.desadv = XmlDocument(desadv_file)
