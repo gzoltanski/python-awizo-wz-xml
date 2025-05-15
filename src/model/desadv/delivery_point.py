@@ -1,22 +1,15 @@
 import xml.etree.ElementTree as ET
 from .base import DesadvBase
 
-class Seller(DesadvBase):
+class DeliveryPoint(DesadvBase):
     def __init__(self, desadv_file: str) -> None:
         super().__init__(desadv_file)
-        self.node = self.desadv.find(".//Seller")
+        self.node = self.desadv.find(".//DeliveryPoint")
 
-        self.code_by_buyer = self.node.findtext("CodeByBuyer")
         self.i_l_n = self.node.findtext("ILN")
-
-    def get_code_by_buyer(self) -> str | None:
-        return self.code_by_buyer
 
     def get_i_l_n(self) -> str | None:
         return self.i_l_n
-
-    def set_code_by_buyer(self, value: str | None) -> None:
-        self._set_xml_text("CodeByBuyer", value)
 
     def set_i_l_n(self, value: str | None) -> None:
         self._set_xml_text("ILN", value)
