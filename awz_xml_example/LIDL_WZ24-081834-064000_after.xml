@@ -1,0 +1,57 @@
+<Document-DespatchAdvice>
+              <DespatchAdvice-Header>
+                <DespatchAdviceNumber>023315052501</DespatchAdviceNumber>
+                <DespatchAdviceDate>2025-05-13</DespatchAdviceDate>
+                <EstimatedDeliveryDate>2025-05-15</EstimatedDeliveryDate>
+                <BuyerOrderNumber>023315052501</BuyerOrderNumber>
+                <DespatchNumber>081834</DespatchNumber>
+                <DespatchDate />
+              </DespatchAdvice-Header>
+              <DespatchAdvice-Transport>
+                <TermsOfDelivery />
+                <ConveyanceReferenceNumber />
+                <ModeOfTransport />
+              </DespatchAdvice-Transport>
+              <DespatchAdvice-Parties>
+                <Buyer>
+                  <ILN>4335814000004</ILN>
+                </Buyer>
+                <Seller>
+                  <ILN>5909000034013</ILN>
+                  <CodeByBuyer />
+                </Seller>
+                <DeliveryPoint>
+                  <ILN>4335814000110</ILN>
+                </DeliveryPoint>
+              </DespatchAdvice-Parties>
+              <DespatchAdvice-Consignment>
+                <Packing-Sequence>
+                  <Packing-Reference>
+                    <PackageId>1</PackageId>
+                    <PackageNumber>1</PackageNumber>
+                    <PackageType>201</PackageType>
+                    <SerialNumber>359001961151334223</SerialNumber>
+                  </Packing-Reference>
+                  <Line>
+                    <Line-Item>
+                      <LineNumber>1</LineNumber>
+                      <OrderLineNumber>1</OrderLineNumber>
+                      <EAN>4052917987383</EAN>
+                      <BuyerItemCode>55625250001</BuyerItemCode>
+                      <QuantityDespatched>360.0</QuantityDespatched>
+                      <UnitOfMeasure>PCE</UnitOfMeasure>
+                      <ItemDescription>RZEZNIK Medaliony z fileta</ItemDescription>
+                      <BestBeforeDate>2025-05-23</BestBeforeDate>
+                    </Line-Item>
+                    <Package-Identification>
+                      <Goods-Identity>
+                        <Type>BX</Type>
+                        <Range>
+                          <ID-Begin>0648413517</ID-Begin>
+                        </Range>
+                      </Goods-Identity>
+                    </Package-Identification>
+                  </Line>
+                </Packing-Sequence>
+              </DespatchAdvice-Consignment>
+            </Document-DespatchAdvice>

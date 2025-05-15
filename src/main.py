@@ -6,8 +6,8 @@ from src.repository.wawi.sscc_repository import *
 
 if __name__ == '__main__':
 
-
-    awz_file = new_awz_folder / 'WZ24-080686-064000.XML'
+    awz_filename = 'WZ24-080686-064000.XML'
+    awz_file = new_awz_folder / awz_filename
     print(awz_file)
     #
     # awz = XmlDocument(awz_file)
