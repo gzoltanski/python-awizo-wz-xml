@@ -1,7 +1,8 @@
 from dataclasses import dataclass
-from src.model.desadv.Range import Range
+from src.model.self.desadv.Range import Range
+from .base import DesadvBase
 
 @dataclass
-class GoodsIdentity:
+class GoodsIdentity(DesadvBase):
     type: str
     range: Range

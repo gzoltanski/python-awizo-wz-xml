@@ -1,10 +1,11 @@
 from src.model.desadv import *
+from .base import DesadvBase
 
-class Buyer:
+class Buyer(DesadvBase):
     def __init__(self, desadv_file: Path):
-        desadv = XmlDocument(desadv_file)
+        super().__init__(desadv_file)
 
-        self.buyer = desadv.root.find("./DespatchAdvice-Parties/Buyer")
+        self.buyer = self.desadv.root.find("./DespatchAdvice-Parties/Buyer")
         self.iln = self.buyer.find("./ILN")
 
     def set_iln(self, new_iln):

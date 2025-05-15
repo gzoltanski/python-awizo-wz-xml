@@ -1,6 +1,7 @@
 from dataclasses import dataclass
-from src.model.desadv.GoodsIdentity import GoodsIdentity
+from src.model.self.desadv.GoodsIdentity import GoodsIdentity
+from .base import DesadvBase
 
 @dataclass
-class PackageIdentification:
+class PackageIdentification(DesadvBase):
     goods_identity: GoodsIdentity

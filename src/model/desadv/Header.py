@@ -1,7 +1,8 @@
 from dataclasses import dataclass
+from .base import DesadvBase
 
 @dataclass
-class Header:
+class Header(DesadvBase):
     despatch_advice_no: str
     despatch_advice_date: str
     estimated_delivery_date: str

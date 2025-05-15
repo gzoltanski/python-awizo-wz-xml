@@ -1,7 +1,8 @@
 from dataclasses import dataclass
+from .base import DesadvBase
 
 @dataclass
-class LineItem:
+class LineItem(DesadvBase):
     line_number: str
     order_line_number: str
     ean: str

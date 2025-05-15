@@ -1,6 +1,7 @@
 from dataclasses import dataclass
-from src.model.desadv.PackingSequence import PackingSequence
+from src.model.self.desadv.PackingSequence import PackingSequence
+from .base import DesadvBase
 
 @dataclass
-class Consignment:
+class Consignment(DesadvBase):
     packing_sequence: PackingSequence
