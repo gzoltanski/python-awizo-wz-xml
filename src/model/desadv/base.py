@@ -1,4 +1,4 @@
-from utils.xml_tools import XmlDocument
+from . import XmlDocument
 
 class DesadvBase:
     """Wspólna funkcjonalność dla wszystkich obiektów DESADV."""
