@@ -1,13 +1,15 @@
-from dataclasses import dataclass
-from src.model.desadv.Header import Header
-from src.model.desadv.Transport import Transport
-from src.model.desadv.Parties import Parties
-from src.model.desadv.Consignment import Consigment
+from . import *
 
-
-@dataclass
-class DespatchAdvice:
-    header: Header
-    transport: Transport
-    parties: Parties
-    consigment: Consigment
+class DespatchAdvice(DesadvBase):
+    def __init__(self,
+                 desadv_file: Path,
+                 node=None
+                 ):
+        super().__init__(
+            desadv_file,
+            node,
+            header='DespatchAdvice-Header',
+            transport='DespatchAdvice-Transport',
+            parties='DespatchAdvice-Parties',
+            consignment='DespatchAdvice-Consignment'
+        )

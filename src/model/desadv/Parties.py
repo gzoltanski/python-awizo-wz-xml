@@ -1,10 +1,14 @@
-from dataclasses import dataclass
-from src.model.desadv.Buyer import Buyer
-from src.model.desadv.Seller import Seller
-from src.model.desadv.DeliveryPoint import DeliveryPoint
+from . import *
 
-@dataclass
-class Parties:
-    buyer: Buyer
-    seller: Seller
-    delivery_point: DeliveryPoint
+class Parties(DesadvBase):
+    def __init__(self,
+                 desadv_file: Path,
+                 node='DespatchAdvice-Parties'
+                 ):
+        super().__init__(
+            desadv_file,
+            node,
+            buyer='Buyer',
+            seller='Seller',
+            delivery_point='DeliveryPoint'
+        )

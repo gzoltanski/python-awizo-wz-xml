@@ -2,7 +2,7 @@ from src.model import *
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
-class XmlDocument():
+class XmlDocument:
     """Klasa-szablon dla dokumentów XML"""
     def __init__(self, xml_file: Path) -> None:
         self.xml_file = xml_file
@@ -12,12 +12,22 @@ class XmlDocument():
     def __repr__(self):
         return f"{ET.dump(self.root)}"
 
-    def display(self):
-        ET.dump(self.root)
 
+# -------------------------------------------------------------------
 class DesadvBase:
     """Klasa bazowa dla wszystkich obiektów DESADV."""
 
-    def __init__(self, desadv_file: Path) -> None:
+    def __init__(self, desadv_file: Path, node: str, **kwargs) -> None:
         # Jednorazowa inicjalizacja parsera XML
         self.desadv = XmlDocument(desadv_file)
+        if node:
+            self.node = self.desadv.root.find(f".//{node}")
+        else:
+            self.node = self.desadv.root
+        for key, value in kwargs.items():
+            setattr(self, key, self.node.find(value))
+
+    def __repr__(self) -> str:
+        return f"{ET.dump(self.node)}"
+
+
