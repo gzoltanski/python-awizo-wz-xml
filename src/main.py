@@ -28,31 +28,45 @@ if __name__ == '__main__':
     awz_file = new_awz_folder / awz_filename
     print(awz_file)
 
-    despatch_advice = DespatchAdvice(awz_file)
+    despatch_advice = DesadvBase(awz_file)
+    # print(despatch_advice)
+    root = despatch_advice.root
+    # print(root.tag)
+
+    # print("\n======== sprawdzamy elementy potomne =======\n")
+    # attributes = despatch_advice.__dict__
+    # for attr, value in attributes.items():
+    #     print(attr, value)
+
+    for child in despatch_advice.consignment:
+        print(child.tag, child.text)
+
+    despatch_advice.clear_consignment()
     print(despatch_advice)
 
-    print("\n======== sprawdzamy elementy potomne =======\n")
-    # for child in despatch_advice.desadv.root:
-    #     print(child.tag, child.attrib, child.text)
+    despatch_advice.add_packing_sequence()
+    print(despatch_advice)
 
 
-    def extract_elements(element):
-
-        element_dict = {element.tag: element.text}
-        children_list = []
-        for child in element:
-            children_list.append(extract_elements(child))
-
-        element_dict['children'] = children_list
-        return element_dict
-
-
-
-    root = despatch_advice.desadv.root
-    result = extract_elements(root)
-
-    for key, value in result.items():
-        print(key, value)
+    #
+    #
+    # def extract_elements(element):
+    #
+    #     element_dict = {element.tag: element.text}
+    #     children_list = []
+    #     for child in element:
+    #         children_list.append(extract_elements(child))
+    #
+    #     element_dict['children'] = children_list
+    #     return element_dict
+    #
+    #
+    #
+    # root = despatch_advice.desadv.root
+    # result = extract_elements(root)
+    #
+    # for key, value in result.items():
+    #     print(key, value)
 
 
 

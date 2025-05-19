@@ -2,8 +2,10 @@ from src.model import *
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+
 class XmlDocument:
     """Klasa-szablon dla dokumentów XML"""
+
     def __init__(self, xml_file: Path) -> None:
         self.xml_file = xml_file
         self.tree = ET.parse(self.xml_file)
@@ -12,25 +14,24 @@ class XmlDocument:
     def __repr__(self):
         return f"{ET.dump(self.root)}"
 
+    def add_element(self, parent, element, level):
+        ET.SubElement(parent, element)
+        ET.indent(parent, 2*" ", level=level)
+
 
 # -------------------------------------------------------------------
-class DesadvBase:
+class DesadvBase(XmlDocument):
     """Klasa bazowa dla wszystkich obiektów DESADV."""
 
-    def __init__(self, desadv_file: Path, node: str, **kwargs) -> None:
-        # Jednorazowa inicjalizacja parsera XML
-        self.desadv = XmlDocument(desadv_file)
+    def __init__(self, xml_file: Path) -> None:
+        super().__init__(xml_file)
+        for child in self.root:
+            setattr(self, child.tag.lower().split("-")[1], child)
 
-        if node:
-            self.node = self.desadv.root.find(f".//{node}")
-        else:
-            self.node = self.desadv.root
-        for key, value in kwargs.items():
-            setattr(self, key, self.node.find(value))
+    def clear_consignment(self):
+        self.consignment.clear()
 
-    def __repr__(self) -> str:
-        return f"{ET.dump(self.node)}"
-
-
+    def add_packing_sequence(self):
+        self.add_element(self.consignment, "Packing-Sequence", 7)
 
 
