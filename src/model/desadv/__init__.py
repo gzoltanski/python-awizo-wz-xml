@@ -20,6 +20,7 @@ class DesadvBase:
     def __init__(self, desadv_file: Path, node: str, **kwargs) -> None:
         # Jednorazowa inicjalizacja parsera XML
         self.desadv = XmlDocument(desadv_file)
+
         if node:
             self.node = self.desadv.root.find(f".//{node}")
         else:
@@ -29,5 +30,7 @@ class DesadvBase:
 
     def __repr__(self) -> str:
         return f"{ET.dump(self.node)}"
+
+
 
 

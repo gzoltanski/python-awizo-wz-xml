@@ -13,3 +13,10 @@ class DespatchAdvice(DesadvBase):
             parties='DespatchAdvice-Parties',
             consignment='DespatchAdvice-Consignment'
         )
+
+    # def clear_consignment(self):
+    #     # usunięcie wszystkich podelementów gałęzi "DespatchAdvice-Consigment"
+    #     self.consignment.clear()
+    #
+    # def get_list_of_consigment(self):
+    #         return list(self.consignment)

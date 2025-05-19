@@ -1,5 +1,12 @@
-from dataclasses import dataclass
+from . import *
 
-@dataclass
-class Range:
-    id_begin: str
+class Range(DesadvBase):
+    def __init__(self,
+                 desadv_file: Path,
+                 node='Range'
+                 ) -> None:
+        super().__init__(
+            desadv_file,
+            node,
+            id_begin='ID-Begin'
+        )

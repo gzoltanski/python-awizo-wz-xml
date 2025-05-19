@@ -1,4 +1,6 @@
 from . import *
+from .PackingSequence import PackingSequence
+
 
 class Consignment(DesadvBase):
     def __init__(self,
@@ -10,3 +12,9 @@ class Consignment(DesadvBase):
             node,
             packing_sequence='Packing-Sequence'
         )
+        # self.children: [PackingSequence] = self.children
+
+    # def clear(self):
+    #     self.clear()
+
+

@@ -1,7 +1,12 @@
-from dataclasses import dataclass
-from src.model.desadv.Range import Range
+from . import *
 
-@dataclass
-class GoodsIdentity:
-    type: str
-    range: Range
+class GoodsIdentity(DesadvBase):
+    def __init__(self,
+                 desadv_file: Path,
+                 node='Goods-Identity'
+                 ) -> None:
+        super().__init__(desadv_file,
+                         node,
+                         type='Type',
+                         range='Range'
+                         )
