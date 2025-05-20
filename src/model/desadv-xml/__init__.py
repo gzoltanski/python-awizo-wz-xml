@@ -1,6 +1,8 @@
 from src.model import *
 from pathlib import Path
+from typing import TypeVar, Generic
 import xml.etree.ElementTree as ET
+
 
 
 class XmlDocument:
@@ -20,6 +22,13 @@ class XmlDocument:
 
 
 # -------------------------------------------------------------------
+class Element:
+    def __init__(self, parent) -> None:
+        self.parent = parent
+
+
+
+
 class DesadvBase(XmlDocument):
     """Klasa bazowa dla wszystkich obiektów DESADV."""
 

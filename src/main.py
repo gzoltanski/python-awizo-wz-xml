@@ -1,6 +1,6 @@
 from db.database import *
 from src import *
-# import src.model.desadv
+# import src.model.desadv-xml
 from src.model.desadv import *
 from src.model.desadv.Consignment import Consignment
 from src.model.desadv.DeliveryPoint import DeliveryPoint
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     #
     #
     #
-    # root = despatch_advice.desadv.root
+    # root = despatch_advice.desadv-xml.root
     # result = extract_elements(root)
     #
     # for key, value in result.items():
