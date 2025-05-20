@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import TypeVar, Generic
 import xml.etree.ElementTree as ET
 
-
+T = TypeVar('T')
 
 class XmlDocument:
     """Klasa-szablon dla dokumentów XML"""
@@ -22,9 +22,13 @@ class XmlDocument:
 
 
 # -------------------------------------------------------------------
-class Element:
-    def __init__(self, parent) -> None:
-        self.parent = parent
+class Element(Generic[T]):
+    def __init__(self, tag: str, parent_tag: str) -> None:
+        self.tag = tag
+        self.parent_tag = parent_tag
+        self.children_tag = []
+
+
 
 
 
